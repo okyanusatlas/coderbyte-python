@@ -8,13 +8,11 @@ def ABCheck(str):
 
     array = list(str)
     for counter, letter in enumerate(array):
-        if counter+4 < len(array):
-            if letter == "a" and array[counter+4] == "b":
+            if letter == "a" and counter+4 < len(array) and array[counter+4] == "b":
                 return True
-        else:
-            return False
 
-    return array
+    return False
 
 
 print(ABCheck("lane borrowed"))
+print(ABCheck("after badly"))
