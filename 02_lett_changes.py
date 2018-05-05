@@ -13,11 +13,14 @@ def LetterChanges(str):
 
     for counter, ascii_code in enumerate(asciiList):
         if ascii_code > 64:
-            ascii_code += 1
-            if chr(ascii_code) == "a" or chr(ascii_code) == "e" or chr(ascii_code) == "i" or chr(ascii_code) == "o" or chr(ascii_code) == "u":
-                asciiList[counter] = chr(ascii_code).capitalize()
+            if ascii_code == 122:
+                asciiList[counter] = "a"
             else:
-                asciiList[counter] = chr(ascii_code)
+                ascii_code += 1
+                if chr(ascii_code) in ('a', 'e', 'i', 'o', 'u'):
+                    asciiList[counter] = chr(ascii_code).capitalize()
+                else:
+                    asciiList[counter] = chr(ascii_code)
         else:
             asciiList[counter] = chr(ascii_code)
 
@@ -27,4 +30,4 @@ def LetterChanges(str):
     return result
 
 
-print(LetterChanges("beautiful^"))
+print(LetterChanges("beautifulz^"))
